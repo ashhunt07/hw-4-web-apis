@@ -1,0 +1,29 @@
+body{
+    width: 100%;
+    font-family: 'Lato', sans-serif;
+}
+
+h1{
+    font-family: 'Abel', sans-serif;
+}
+
+.wrapper{
+    width:60%;
+    margin: 2em auto;
+}
+
+nav{
+    width:100%;
+    display:block;
+
+}
+
+nav a{
+    float:right;
+    text-decoration: none;
+}
+
+main{
+    width:100%;
+    clear:both;
+}
