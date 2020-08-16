@@ -93,7 +93,6 @@ function renderQuestionChoices() {
     if (increment === questions.length || timerlimit <= 0) {
         clearInterval(timer);
         countDown.textContent = 'Time is up!';
-        mainEl.classList.add('hide');
         endGame();
     } else {
         questionEl.textContent = questions[increment].question;
@@ -122,11 +121,52 @@ function renderQuestionChoices() {
 }
 
 function endGame(){
+    mainEl.classList.add('hide');
     highScore.classList.remove('hide');
     var finalText = document.getElementById('highScore');
     finalText.textContent = "Your final score is: " + score;
-}
 
+    var form = document.createElement("form");
+    form.setAttribute("class", "form-submissions")
+    var inputInitials = document.createElement("input");
+    var inputForm = document.createElement("div");
+    inputInitials.setAttribute("id", "initial-input");
+    inputInitials.setAttribute("type", "text");
+
+    //Add a submit score button to form
+    var formSubmit = document.createElement("button");
+    var formButton = document.createElement("div");
+    formSubmit.setAttribute("class", "submit-button")
+    finalText.append(form);
+    form.append(inputForm);
+    inputForm.append(inputInitials);
+    finalText.append(formButton);
+    formButton.append(formSubmit);
+    formSubmit.textContent = "Submit Initials";
+
+    //Prevent default for form submit button
+//     var formSubmit = document.getElementById("form-submit");
+//     formSubmit.addEventListener("click", function (event) {
+//         event.preventDefault();
+    
+    
+//     // formSubmit.addEventListener("click", function (event) {
+//     //   event.preventDefault();
+
+//     //   //Input for user initials
+//     //   var initials = document.getElementById("initial-input");
+
+//     //   //Put initials into local storage
+//     //   localStorage.setItem("Initials: ", initials.value);
+//     //   mainContain.innerHTML = "";
+//     //   var finalInitials = localStorage.getItem("Initials: ");
+//     //   var highScores = document.createElement("div");
+
+//     //   var initialsScore = document.createElement("div");
+//     //   initialsScore.textContent = "Initials: " + finalInitials + " Score: " + finalScore;
+
+// })
+}
 
 
 renderQuestionChoices()

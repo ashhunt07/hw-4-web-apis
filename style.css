@@ -68,6 +68,7 @@ main{
     display: flex;
     justify-content: center;
     color:#fff;
+    border-radius: 5px;
 }
 
 .answer-choices{
@@ -80,9 +81,36 @@ main{
     box-shadow: 0px 3px 10px -3px #aaaaaa;
     cursor: pointer;
     color:#fff;
+    border-radius: 5px;
 }
 
 
 .hide{
     display:none;
+}
+
+.form-submissions{
+    margin: 1em 0;
+}
+
+#initial-input{
+    padding: .5em 0;
+    margin: 1em 0 0;
+    background-color:#fff;
+    border: 1px solid rgb(226, 164, 175);
+    border-radius: 5px;
+}
+
+
+.submit-button{
+    width: fit-content;
+    border:none;
+    padding: 1em 4%;
+    background-color: rgb(226, 164, 175);
+    -webkit-box-shadow: 0px 3px 10px -3px #aaaaaa;
+    -moz-box-shadow: 0px 3px 10px -3px #aaaaaa;
+    box-shadow: 0px 3px 10px -3px #aaaaaa;
+    cursor: pointer;
+    color:#fff;
+    border-radius: 5px;
 }
