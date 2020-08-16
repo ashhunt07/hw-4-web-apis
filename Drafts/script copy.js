@@ -43,29 +43,27 @@ var questions = [  //making an array of objects
 ]
 
 
-var mainEl = document.getElementById('quiz');
+var mainEl = document.getElementById('main');
 var questionEl = document.getElementById('questions');
 var choicesEl = document.getElementById('choices');
 var progressEl = document.getElementById('progress');
-var starter = document.getElementById('intro')
-var startButton = document.getElementById('start-btn');
+var starter = document.getElementById('start-btn');
 var countDown = document.getElementById('timer');
 
 var increment = 0;
 var timerlimit = 60;
 
-startButton.addEventListener("click", startGame);
-
 function startGame(){
+    starter.addEventListener("click", function() {
     starter.classList.add('hide');
     mainEl.classList.remove ('hide');
-    countDown.textContent = timer;
-};
+});
 
 var timer = setInterval(function () {
-    console.log(timerlimit);
+    // countDown.append(timerlimit)
+    console.log(timerlimit)
     timerlimit--
-}, 1000);
+}, 1000)
 
 function renderProgress(boolean) {
     if (boolean) {
@@ -74,7 +72,7 @@ function renderProgress(boolean) {
         progressEl.textContent = 'incorrect';
     }
     setTimeout(function () {
-        progressEl.textContent = '';
+        progressEl.textContent = ''
     }, 2000)
 }
 
@@ -108,3 +106,70 @@ function renderQuestionChoices() {
     }
 }
 renderQuestionChoices()
+
+
+// timerlimit <= 0 || (increment === questions.length - 1) 
+
+
+
+
+// // Variables
+// var mainEl = document.getElementById('main');
+// var questionEl = document.getElementById('questions')
+// var choicesEl = documnent.getElementById('choices')
+
+// var increment = 0; //could use increment++ to go through the quiz
+
+
+// function renderChoices(){
+
+//     
+
+//     //Answers
+//     for(var i = 0; i < questions[increment].answerChoices.length; i++) {
+
+//         var answerChoiceEl = document.createElement('div');
+//         answerChoiceEl.setAttribute('class', 'answer-choices');
+        
+//         answerChoiceEl.textContent = questions[increment].answerChoices[i];
+//         choicesEl.append(answerChoiceEl);
+
+//         answerChoiceEl.addEventListener('click', function(e) {
+//             e.preventDefault();
+//             var answerSelected = this.textContent;
+//             if(answerSelected === questions[increment].correctAnswer){
+//                 increment++;
+//                 choicesEl.innerHTML ="";
+//                 renderChoices();
+//             } else{
+//                 console.log('this is incorrect')
+//             }
+        
+//         })
+        
+//     }
+
+// }
+
+// // Timer function
+
+// function timeClock(){
+//     var timerlimit = 100;
+//     var timer = setInterval(function() { 
+//         timerlimit--
+//     }, 1000);
+
+//     if (timerlimit <=0 || increment === questions.length +1) {
+//         clearInterval(timer);
+//     }
+// }
+
+// renderChoices()
+
+// keyword this – gathers the information in which the function was fired from and returns selected elements
+// ananomous function
+// A while loop is not necessary for this to work
+// Single quotes can contain double quotes
+// Compilor is located inside the browser
+
+

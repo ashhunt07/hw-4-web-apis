@@ -18,15 +18,17 @@
 
         <nav>
             <a href="score.html">View Highscores</a>
+            <div class="timer"></div>
         </nav>
 
         <main>
-            <h1>Javascript Quiz</h1>
-            <div class="gameDesc">Let's see how much you know about Javascript! Click start to begin the timed quiz.</div>
+            <div id="intro">
+                <h1>Javascript Quiz</h1>
+                <div class="gameDesc">Let's see how much you know about Javascript! Click start to begin the timed quiz.</div>
 
-            <button id="start-btn" class ="start-btn btn">Start Game</button>
-
-            <div id="main" class="hide">
+                <button id="start-btn" class ="start-btn btn">Start Game</button>
+            </div>
+            <div id="quiz" class="hide">
                 <div id=questions></div>
                 <div id=choices></div>
             </div>
