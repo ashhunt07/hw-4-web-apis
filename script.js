@@ -90,10 +90,11 @@ function renderProgress(boolean) {
 
 
 function renderQuestionChoices() {
-    if (increment === questions.length || timerlimit <= 0) {
+    if (increment === questions.length || timerlimit === 0) {
         countDown.textContent = 'Time is up!';
         mainEl.classList.add('hide');
-        endgame();
+        var endGame = document.createElement('div');
+        endGame.textContent(score);
     } else {
         questionEl.textContent = questions[increment].question;
 
@@ -117,10 +118,6 @@ function renderQuestionChoices() {
             })
         }    
         
-    }
-
-    function endGame() {
-        highScore.textContent(score);
     }
 }
 

@@ -30,6 +30,7 @@ nav a{
     float:left;
     width: 45%;
     text-decoration: none;
+    color:rgb(226, 164, 175);
 }
 
 nav #timer{
@@ -52,7 +53,7 @@ main{
 #start-btn{
     padding: 1em 4%;
     margin: 1em auto;
-    background-color: pink;
+    background-color: rgb(226, 164, 175);
     border: none;
     -webkit-box-shadow: 0px 3px 10px -3px #aaaaaa;
     -moz-box-shadow: 0px 3px 10px -3px #aaaaaa;
@@ -61,17 +62,19 @@ main{
     font-size: 1.5em;
     display: flex;
     justify-content: center;
+    color:#fff;
 }
 
 .answer-choices{
     width: fit-content;
     padding: 1em 4%;
     margin: 1em 0;
-    background-color: pink;
+    background-color: rgb(226, 164, 175);
     -webkit-box-shadow: 0px 3px 10px -3px #aaaaaa;
     -moz-box-shadow: 0px 3px 10px -3px #aaaaaa;
     box-shadow: 0px 3px 10px -3px #aaaaaa;
     cursor: pointer;
+    color:#fff;
 }
 
 
