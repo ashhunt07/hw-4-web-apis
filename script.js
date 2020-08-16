@@ -89,12 +89,17 @@ function renderProgress(boolean) {
 }
 
 
+function endGame(){
+    var highScore = document.createElement('div');
+    highScore.textContent = "End of quiz!" + " " + "You got  " + score + "/" + questions.length + " Correct!";
+}
+
+
 function renderQuestionChoices() {
     if (increment === questions.length || timerlimit === 0) {
         countDown.textContent = 'Time is up!';
         mainEl.classList.add('hide');
-        var endGame = document.createElement('div');
-        endGame.textContent(score);
+        endGame()
     } else {
         questionEl.textContent = questions[increment].question;
 

@@ -33,6 +33,11 @@ nav a{
     color:rgb(226, 164, 175);
 }
 
+nav a:hover{
+    color:rgb(189, 93, 110);
+}
+
+
 nav #timer{
     float:right;
     text-align: right;
