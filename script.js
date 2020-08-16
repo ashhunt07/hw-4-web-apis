@@ -144,28 +144,26 @@ function endGame(){
     formButton.append(formSubmit);
     formSubmit.textContent = "Submit Initials";
 
-    //Prevent default for form submit button
-//     var formSubmit = document.getElementById("form-submit");
-//     formSubmit.addEventListener("click", function (event) {
-//         event.preventDefault();
-    
-    
-//     // formSubmit.addEventListener("click", function (event) {
-//     //   event.preventDefault();
+    // Prevent default for form submit button
+    var formSubmit = document.getElementById("form-submit");
 
-//     //   //Input for user initials
-//     //   var initials = document.getElementById("initial-input");
+    formSubmit.addEventListener("click", function (e) {
+        e.preventDefault();
 
-//     //   //Put initials into local storage
-//     //   localStorage.setItem("Initials: ", initials.value);
-//     //   mainContain.innerHTML = "";
-//     //   var finalInitials = localStorage.getItem("Initials: ");
-//     //   var highScores = document.createElement("div");
+        //Input for user initials
+        var initials = document.getElementById("initial-input");
 
-//     //   var initialsScore = document.createElement("div");
-//     //   initialsScore.textContent = "Initials: " + finalInitials + " Score: " + finalScore;
+        //Put initials into local storage
+        localStorage.setItem("Initials: ", initials.value);
+        highScore.innerHTML = "";
+        var finalInitials = localStorage.getItem("Initials: ");
+        var highScore = document.createElement("savedScores");
 
-// })
+        var initialsScore = document.createElement("savedInitials");
+        initialsScore.textContent = "Initials: " + finalInitials + " Score: " + score;
+
+})
+
 }
 
 
