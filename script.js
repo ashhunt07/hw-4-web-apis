@@ -55,6 +55,7 @@ var highScore = document.getElementById('highScore')
 var increment = 0;
 var timerlimit = 60;
 var score = 0;
+// var finalScore = 0;
 
 startButton.addEventListener("click", startGame);
 
@@ -69,9 +70,9 @@ var timer = setInterval(function () {
     console.log(timerlimit);
     timerlimit--;
     countDown.textContent = timerlimit + ' seconds remaining';
-
     if (timerlimit <= 0) {
         clearInterval(timer);
+        endGame();
     }
 }, 1000);
 
@@ -88,19 +89,12 @@ function renderProgress(boolean) {
     }, 2000)
 }
 
-
-// function endGame(){
-//     var highScore = document.createElement('div');
-//     highScore.append(mainEl);
-//     highScore.textContent = "End of quiz!" + " " + "You got  " + score + "/" + questions.length + " Correct!";
-// }
-
-
 function renderQuestionChoices() {
     if (increment === questions.length || timerlimit <= 0) {
         clearInterval(timer);
         countDown.textContent = 'Time is up!';
         mainEl.classList.add('hide');
+        endGame();
     } else {
         questionEl.textContent = questions[increment].question;
 
@@ -127,6 +121,11 @@ function renderQuestionChoices() {
     }
 }
 
+function endGame(){
+    highScore.classList.remove('hide');
+    var finalText = document.getElementById('highScore');
+    finalText.textContent = "Your final score is: " + score;
+}
 
 
 
