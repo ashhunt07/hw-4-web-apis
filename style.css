@@ -32,7 +32,7 @@ nav a{
     text-decoration: none;
 }
 
-nav .timer{
+nav #timer{
     padding: 5px;
     background-color:red;
     float:right;

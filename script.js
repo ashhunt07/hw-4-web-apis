@@ -56,15 +56,21 @@ var timerlimit = 60;
 
 startButton.addEventListener("click", startGame);
 
+// Start Game on Click!
 function startGame(){
     starter.classList.add('hide');
     mainEl.classList.remove ('hide');
-    countDown.textContent = timer;
-};
 
+
+// Add Timer
 var timer = setInterval(function () {
     console.log(timerlimit);
-    timerlimit--
+    timerlimit--;
+    countDown.textContent = timerlimit + ' seconds remaining';
+
+    if (timerlimit === 0) {
+        clearInterval(timer);
+    }
 }, 1000);
 
 function renderProgress(boolean) {
@@ -101,10 +107,13 @@ function renderQuestionChoices() {
                 } else {
                     renderProgress(false);
                     timerlimit = timerlimit - 10;
-                
+                    
                 }
             })
         }
+
+        
     }
 }
 renderQuestionChoices()
+};
