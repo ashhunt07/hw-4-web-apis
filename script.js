@@ -79,7 +79,7 @@ function renderProgress(boolean) {
     if (boolean) {
         progressEl.textContent = 'correct';
         score++;
-        console.log(score);
+        localStorage.setItem("Score: ", score);
     } else {
         progressEl.textContent = 'incorrect';
     }
@@ -89,17 +89,18 @@ function renderProgress(boolean) {
 }
 
 
-function endGame(){
-    var highScore = document.createElement('div');
-    highScore.textContent = "End of quiz!" + " " + "You got  " + score + "/" + questions.length + " Correct!";
-}
+// function endGame(){
+//     var highScore = document.createElement('div');
+//     highScore.append(mainEl);
+//     highScore.textContent = "End of quiz!" + " " + "You got  " + score + "/" + questions.length + " Correct!";
+// }
 
 
 function renderQuestionChoices() {
-    if (increment === questions.length || timerlimit === 0) {
+    if (increment === questions.length || timerlimit <= 0) {
+        clearInterval(timer);
         countDown.textContent = 'Time is up!';
         mainEl.classList.add('hide');
-        endGame()
     } else {
         questionEl.textContent = questions[increment].question;
 
