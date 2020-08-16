@@ -50,9 +50,11 @@ var progressEl = document.getElementById('progress');
 var starter = document.getElementById('intro')
 var startButton = document.getElementById('start-btn');
 var countDown = document.getElementById('timer');
+var highScore = document.getElementById('highScore')
 
 var increment = 0;
 var timerlimit = 60;
+var score = 0;
 
 startButton.addEventListener("click", startGame);
 
@@ -68,7 +70,7 @@ var timer = setInterval(function () {
     timerlimit--;
     countDown.textContent = timerlimit + ' seconds remaining';
 
-    if (timerlimit === 0) {
+    if (timerlimit <= 0) {
         clearInterval(timer);
     }
 }, 1000);
@@ -76,6 +78,8 @@ var timer = setInterval(function () {
 function renderProgress(boolean) {
     if (boolean) {
         progressEl.textContent = 'correct';
+        score++;
+        console.log(score);
     } else {
         progressEl.textContent = 'incorrect';
     }
@@ -86,8 +90,10 @@ function renderProgress(boolean) {
 
 
 function renderQuestionChoices() {
-    if (increment === questions.length) {
-        console.log('game complete');
+    if (increment === questions.length || timerlimit <= 0) {
+        countDown.textContent = 'Time is up!';
+        mainEl.classList.add('hide');
+        endgame();
     } else {
         questionEl.textContent = questions[increment].question;
 
@@ -100,20 +106,26 @@ function renderQuestionChoices() {
                 e.preventDefault()
                 var answerSelected = this.textContent;
                 if (answerSelected === questions[increment].correctAnswer) {
-                    increment++
+                    increment++;
                     choicesEl.innerHTML = '';
                     renderProgress(true);
                     renderQuestionChoices();
                 } else {
                     renderProgress(false);
                     timerlimit = timerlimit - 10;
-                    
                 }
             })
-        }
-
+        }    
         
     }
+
+    function endGame() {
+        highScore.textContent(score);
+    }
 }
+
+
+
+
 renderQuestionChoices()
 };
